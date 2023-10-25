@@ -1,0 +1,9 @@
+br\eti\italosiqueira\leiturabilidade\exception\LeiturabilidadeException.class
+br\eti\italosiqueira\leiturabilidade\extrator\Estatisticas$Builder.class
+br\eti\italosiqueira\leiturabilidade\extrator\IExtratorEstatisticas.class
+br\eti\italosiqueira\leiturabilidade\ClassificadorLeiturabilidade.class
+br\eti\italosiqueira\leiturabilidade\indice\FleschBrasileiroSimples.class
+br\eti\italosiqueira\leiturabilidade\extrator\Estatisticas.class
+br\eti\italosiqueira\leiturabilidade\IClassificadorLeiturabilidade.class
+br\eti\italosiqueira\leiturabilidade\indice\IIndiceLegibilidade.class
+br\eti\italosiqueira\leiturabilidade\extrator\ExtratorEstatisticasRegex.class
