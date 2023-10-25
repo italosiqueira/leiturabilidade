@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.eti.italosiqueira.leiturabilidade.extrator.Estatisticas;
+import br.eti.italosiqueira.leiturabilidade.extrator.ExtratorEstatisticasRegex;
 import br.eti.italosiqueira.leiturabilidade.extrator.IExtratorEstatisticas;
+import br.eti.italosiqueira.leiturabilidade.indice.FleschBrasileiroSimples;
 import br.eti.italosiqueira.leiturabilidade.indice.IIndiceLegibilidade;
 
 /**
@@ -28,6 +30,25 @@ public class ClassificadorLeiturabilidade implements IClassificadorLeiturabilida
 	 * resultados 
 	 */
 	private List<IIndiceLegibilidade> indices = new ArrayList<IIndiceLegibilidade>();
+
+	/**
+	 * Cria uma instância desta classe que utiliza a implementação padrão
+	 * da <i>interface</i> {@code IExtratorEstatisticas} presente no projeto.
+	 * 
+	 * Esta instância também conta com um único índice de legibilidade presente,
+	 * a implementação padrão da <i>interface</i> {@code IIndiceLegibilidade} 
+	 * presente no projeto.
+	 * 
+	 * @return uma instância de {@code ClassificadorLeiturabilidade}.
+	 */
+	public static ClassificadorLeiturabilidade createDefault() {
+		ClassificadorLeiturabilidade classificadorDefault = 
+			new ClassificadorLeiturabilidade(new ExtratorEstatisticasRegex());
+		classificadorDefault.addIndiceLegibilidade(new FleschBrasileiroSimples());
+		
+		return classificadorDefault;
+ 	}
+
 	
 	/**
 	 * Construtor padrão.
