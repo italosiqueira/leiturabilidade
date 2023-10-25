@@ -6,7 +6,7 @@
 
   <groupId>br.eti.italosiqueira</groupId>
   <artifactId>leiturabilidade</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>1.0.0</version>
 
   <name>leiturabilidade</name>
   <description>Uma simples classe para extração de informações sobre leiturabilidade de textos.</description>
