@@ -25,9 +25,9 @@ public class ExtratorEstatisticasRegex implements IExtratorEstatisticas {
 	private static final String REGEX_NOT_EMPTY_STRING = "\\w+";
 	
 	/**
-	 * Regex para localizar períodos.
+	 * Regex para localizar períodos com o auxílio do caractere <a href="https://www.ascii-code.com/character/%C2%B6" target="_top">¶</a>. 
 	 */
-	private static final String REGEX_PERIODO = "(?<=[?!\\.]++)\\s+";
+	private static final String REGEX_PERIODO_WITH_PILCROW = "(?<=[?!\\.]++)[\\u00B6\\u2202\\s]";
 	
 	/**
 	 * Regex para localizar espaços.
@@ -43,6 +43,11 @@ public class ExtratorEstatisticasRegex implements IExtratorEstatisticas {
 	 * Regex para localizar parágrafos.
 	 */
 	private static final String REGEX_PARAGRAFO = "(\\r\\n\\s*)+|\\n";
+	
+	/**
+	 * Um caractere <i>pilcrow</i>, para servir como separador de parágrafos na busca por frases.
+	 */
+	private static final String CHAR_PILCROW = String.format("%c", 182);
 	
 	/**
 	 * Uma instância de <i>Pattern</i> para a <i>regex</i> de <i>Strings</i> 
@@ -92,7 +97,7 @@ public class ExtratorEstatisticasRegex implements IExtratorEstatisticas {
 	 * Rotina para extração das frases do texto a partir de <i>regex</i>.
 	 */
 	private void extrairFrases() {
-		this.frases = this.texto.replaceAll(REGEX_PARAGRAFO, " ").split(REGEX_PERIODO);
+		this.frases = this.texto.replaceAll(REGEX_PARAGRAFO, "." + CHAR_PILCROW).split(REGEX_PERIODO_WITH_PILCROW);
 	}
 	
 	/**
