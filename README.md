@@ -39,6 +39,22 @@ Os testes de Flesch-Kincaid utilizam duas variáveis bastante comuns: o comprime
 - comprimento das frases: medida a partir do número médio de palavras por sentença;
 - complexidade das palavras: medida a partir do número médio de sílabas por palavra.
 
+### Fórmula utilizada
+
+A versão da fórmula implementada por padrão nesta biblioteca é a seguinte:
+
+$$
+248,835 - \left(1,015 * \frac {<palavras>} {<frases>} \right) - \left( 84,6 * \frac {<sílabas>} {<palavras>} \right)
+$$
+
+onde:
+
+- palavras: quantidade de palavras presentes no texto;
+- frases: quantidade de frases presentes no texto;
+- sílabas: quantidaded total de sílabas em todas as palavras presentes no texto.
+
+Maiores detalhes sobre a interpretação da fórmula podem ser encontradas em <a href="#ref-goldim">[2]</a>.
+
 # 🖥️ Stack
 
 - Java 1.8
@@ -108,9 +124,9 @@ Depois disso basta jogar os quantitativos nas fórmulas que desejar.
 
 # Referências
 
-- GRUPO FALABRASIL. Grupo FalaBrasil on GitHub.com, c2023. falabrasil/annotator. Disponível em: <https://github.com/falabrasil/annotator>. Acesso em: 25 de out. de 2023
-- GOLDIM, José Roberto. Índices de Legibilidade de Flesch-Kincaid e de Facilidade de Leitura de Flesch. UFRGS, c2023. Disponível em: <https://www.ufrgs.br/bioetica/ilfk.htm>. Acesso em: 25 de out. de 2023
-- SOBRE - Análise de Legibilidade Textual. ALT - Análise de Legibilidade Textual, 2023. Disponível em: <https://legibilidade.com/sobre>. Acesso em: 25 de out. de 2023
+1. <a id="ref-falabrasil">GRUPO FALABRASIL</a>. Grupo FalaBrasil on GitHub.com, c2023. falabrasil/annotator. Disponível em: <https://github.com/falabrasil/annotator>. Acesso em: 25 de out. de 2023
+2. <a id="ref-goldim">GOLDIM, José Roberto</a>. Índices de Legibilidade de Flesch-Kincaid e de Facilidade de Leitura de Flesch. UFRGS, c2023. Disponível em: <https://www.ufrgs.br/bioetica/ilfk.htm>. Acesso em: 25 de out. de 2023
+3. <a id="ref-legibilidade">SOBRE - Análise de Legibilidade Textual</a>. ALT - Análise de Legibilidade Textual, 2023. Disponível em: <https://legibilidade.com/sobre>. Acesso em: 25 de out. de 2023
 
 <div style="display: inline_block" align="center" >
 	<img alt="Java" src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
