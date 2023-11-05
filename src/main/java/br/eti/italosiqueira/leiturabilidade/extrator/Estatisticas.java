@@ -15,7 +15,9 @@ import org.apache.commons.lang3.SerializationUtils;
  *
  */
 public class Estatisticas implements Serializable {
-	
+
+	private static final String TITLE_PREFIX = "======== ";
+
 	/**
 	 * Versão da classe.
 	 */
@@ -32,6 +34,12 @@ public class Estatisticas implements Serializable {
 	 * em {@link #imprimirPara(PrintStream)}.
 	 */
 	private static final String CHAR_PILCROW = String.format("%c", 182);
+	
+	/**
+	 * Um caractere <i>hyphen</i>, para servir como separador na impressão das sílabas
+	 * em {@link #imprimirPara(PrintStream)}.
+	 */
+	private static final String CHAR_HYPHEN = "-";
 	
 	/**
 	 * <i>Array</i> de parágrafos encontrados.
@@ -103,27 +111,22 @@ public class Estatisticas implements Serializable {
 		String[] palavras = getPalavras();
 		String[] silabas = getSilabas();
 		
-		for (int i = 0; i < frases.length; i++) {
-			if (i == frases.length - 1)
-				out.print(frases[i]);
-			else
-				out.print(frases[i] + CHAR_PILCROW);
-		}
-		out.println();
+		imprimirArrayPara(out, frases, "FRASES", CHAR_PILCROW);
 		
-		for (int i = 0; i < palavras.length; i++) {
-			if (i == palavras.length - 1)
-				out.print(palavras[i]);
-			else
-				out.print(palavras[i] + CHAR_GREEK_MIDDLE_DOT);
-		}
-		out.println();
+		imprimirArrayPara(out, palavras, "PALAVRAS", CHAR_GREEK_MIDDLE_DOT);
 		
-		for (int i = 0; i < silabas.length; i++) {
-			if (i == silabas.length - 1)
-				out.print(silabas[i]);
-			else
-				out.print(silabas[i] + "-");
+		imprimirArrayPara(out, silabas, "SÍLABAS", CHAR_HYPHEN);
+	}
+
+	private void imprimirArrayPara(PrintStream out, String[] stringArray, String titulo, String separador) {
+		out.println(TITLE_PREFIX + titulo + "(" + stringArray.length + ")");
+		if (stringArray.length > 0) {
+			int i = 0;
+			while (i < stringArray.length - 1) {
+				out.print(stringArray[i] + separador);
+				++i;
+			}
+			out.print(stringArray[i]);
 		}
 		out.println();
 	}
