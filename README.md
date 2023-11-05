@@ -74,6 +74,38 @@ System.out.println("Escolaridade sugerida: " + indice.getGrauEscolar());
 
 Este projeto utiliza como gerenciador de projeto o [Apache Maven](https://maven.apache.org/). Antes da primeira execução é necessário instalar adequadamente o módulo `annotator` do Grupo FalaBrasil. As instruções encontram-se em uma README dentro da pasta *lib*.
 
+## Extraindo as estatísticas
+
+É possível obter os dados dos componentes de interesse utilizados aqui (frases, palavras, sílabas) através da instância de ```Estatistica``` que pode ser obtida a partir do Extrator de Estatísticas utilizado. Ela possui um método para simples impressão dos dados e verificação das informações extraídas:
+
+```java
+// Um classificador
+IClassificadorLeiturabilidade classificadorFleschSimples = 
+				new ClassificadorLeiturabilidade(new ExtratorEstatisticasRegex());
+
+/*
+ * Após a análise...
+ */
+IExtratorEstatisticas extrator = classificadorFleschSimples.getEstatisticasTexto();
+
+// Nossa instância de estatísticas
+Estatisticas estatisticas = extrator.getEstatisticas();
+
+// Impressão das informações para a saída padrão
+estatisticas.imprimirPara(System.out);
+
+// Obtendo os componentes individuais
+String[] paragrafos = estatisticas.getParagrafos();
+String[] frases = estatisticas.getFrases();
+String[] palavras = estatisticas.getPalavras();
+String[] silabas = estatisticas.getSilabas();
+
+```
+
+A implementação em nosso extrator (```ExtratorEstatisticasRegex```) sempre devolve uma cópia dos *arrays* primários encapsulados em um novo objeto a fim de evitar a manipulação indevida destes dados diretamente.
+
+Depois disso basta jogar os quantitativos nas fórmulas que desejar.
+
 # Referências
 
 - GRUPO FALABRASIL. Grupo FalaBrasil on GitHub.com, c2023. falabrasil/annotator. Disponível em: <https://github.com/falabrasil/annotator>. Acesso em: 25 de out. de 2023
