@@ -55,6 +55,13 @@ onde:
 
 Maiores detalhes sobre a interpretação da fórmula podem ser encontradas em <a href="#ref-goldim">[2]</a>.
 
+---
+⚠️ **NOTA**
+
+Textos muito curtos, com **menos de 50 palavras** em nosso caso, podem levar a **resultados imprecisos** ou **inválidos**. Por exemplo, o [índice Gunning fog](https://en.wikipedia.org/wiki/Gunning_fog_index) (não utilizado aqui, para avaliação de textos de língua inglesa) é baseado em um algoritmo que para funcionar de forma adequada precisa de cerca de 100 palavras.
+
+---
+
 # 🖥️ Stack
 
 - Java 1.8
